@@ -1,101 +1,189 @@
 # 🚂 EngMate Railway Deployment Guide
 
-Panduan lengkap untuk deploy EngMate backend ke Railway dengan konfigurasi otomatis.
+Panduan lengkap untuk deploy **Backend + Frontend** EngMate ke Railway dalam satu project dengan konfigurasi otomatis.
 
 ## 📋 Prerequisites
 
 1. Akun Railway (https://railway.app)
 2. Repository GitHub sudah connected
 3. API Keys yang diperlukan:
-   - Hugging Face API Key (optional jika USE_MOCK_AI=true)
-   - Groq API Key (optional jika USE_MOCK_AI=true)
+   - Groq API Key (untuk LLM)
+   - Hugging Face API Key (untuk ASR/TTS)
 
-## 🚀 Quick Deploy (3 Langkah)
+---
 
-### Step 1: Create New Project di Railway
+## 🏗️ Architecture Overview
 
-1. Login ke Railway Dashboard
+Railway akan host **2 services** dalam 1 project:
+
+```
+┌─────────────────────────────────────┐
+│     Railway Project: EngMate        │
+├─────────────────────────────────────┤
+│                                     │
+│  ┌─────────────────────────────┐   │
+│  │  Service 1: Backend         │   │
+│  │  - FastAPI                  │   │
+│  │  - Python 3.10              │   │
+│  │  - Port: $PORT              │   │
+│  │  - URL: backend.railway.app │   │
+│  └─────────────────────────────┘   │
+│             │                       │
+│             ├─ PostgreSQL Plugin    │
+│             │                       │
+│  ┌─────────────────────────────┐   │
+│  │  Service 2: Frontend        │   │
+│  │  - React + Vite             │   │
+│  │  - Node.js                  │   │
+│  │  - Port: $PORT              │   │
+│  │  - URL: frontend.railway.app│   │
+│  └─────────────────────────────┘   │
+│                                     │
+└─────────────────────────────────────┘
+```
+
+---
+
+## 🚀 Deployment Steps
+
+### Part 1: Deploy Backend
+
+#### Step 1: Create New Project
+
+1. Login ke [Railway Dashboard](https://railway.app/dashboard)
 2. Klik **"New Project"**
 3. Pilih **"Deploy from GitHub repo"**
 4. Select: `abeachmad/engmate`
-5. Railway akan otomatis detect Python project
+5. Railway akan create service pertama (Backend)
 
-### Step 2: Add PostgreSQL Database
+#### Step 2: Configure Backend Service
+
+1. Service akan auto-detect Python
+2. Rename service: **"engmate-backend"**
+3. Railway auto-configure:
+   - Build: `pip install -r requirements.txt`
+   - Start: `uvicorn app.main:app` (dari Procfile)
+
+#### Step 3: Add PostgreSQL Database
 
 1. Di Project Dashboard, klik **"+ New"**
 2. Pilih **"Database"** → **"Add PostgreSQL"**
 3. Railway akan otomatis:
    - Create PostgreSQL instance
-   - Generate DATABASE_URL
-   - Inject DATABASE_URL ke environment variables
+   - Generate `DATABASE_URL`
+   - Inject ke backend service
 
-### Step 3: Set Environment Variables
+#### Step 4: Set Backend Environment Variables
 
-Di Railway Dashboard → **"Variables"**, tambahkan:
-
-#### Required Variables:
+1. Click Backend Service → **"Variables"** tab
+2. Generate JWT secret:
+   ```bash
+   python generate_secret.py
+   ```
+3. Add variables:
 
 ```bash
-# JWT Secret (Generate random string)
-JWT_SECRET_KEY=<generate-strong-random-key>
-
-# CORS Origins (Your frontend URL)
-CORS_ORIGINS=https://your-frontend-url.vercel.app
-
-# AI Mode (set true untuk development)
+# Required
+JWT_SECRET_KEY=<generated-secret-key>
 USE_MOCK_AI=false
-```
+LOG_LEVEL=INFO
 
-#### Optional API Keys (jika USE_MOCK_AI=false):
-
-```bash
-# Groq API (Recommended - Free tier: 14,400 requests/day)
+# API Keys (untuk production)
 GROQ_API_KEY=<your-groq-api-key>
 GROQ_MODEL_ID=llama-3.1-8b-instant
-
-# Hugging Face API (for ASR/TTS)
-HF_API_KEY=<your-hf-api-key>
+HF_API_KEY=<your-huggingface-api-key>
 HF_API_BASE_URL=https://api-inference.huggingface.co
 HF_ASR_MODEL_ID=openai/whisper-large-v3-turbo
 HF_TTS_MODEL_ID=facebook/mms-tts-eng
+
+# CORS - Will update after frontend deployed
+CORS_ORIGINS=*
 ```
 
-#### System Variables (Optional):
+**⚠️ Note**: Set `CORS_ORIGINS=*` dulu, akan diupdate setelah frontend deploy.
+
+#### Step 5: Get Backend URL
+
+1. Backend Service → **"Settings"** → **"Domains"**
+2. Copy URL: `https://engmate-backend-production.up.railway.app`
+3. Test:
+   ```bash
+   curl https://your-backend-url/api/
+   ```
+
+---
+
+### Part 2: Deploy Frontend
+
+#### Step 6: Add Frontend Service
+
+1. Di Project Dashboard, klik **"+ New"**
+2. Pilih **"GitHub Repo"**
+3. Select: `abeachmad/engmate` (same repo)
+4. Railway akan create service kedua
+
+#### Step 7: Configure Frontend Service
+
+1. Rename service: **"engmate-frontend"**
+2. Set Root Directory: `/` (default)
+3. Override commands:
+   - **Build Command**: 
+     ```bash
+     cd frontend && npm install && npm run build
+     ```
+   - **Start Command**:
+     ```bash
+     cd frontend && npm run preview -- --host 0.0.0.0 --port $PORT
+     ```
+
+Atau biarkan Railway auto-detect dari `package.json`.
+
+#### Step 8: Set Frontend Environment Variables
+
+1. Click Frontend Service → **"Variables"** tab
+2. Add:
 
 ```bash
-LOG_LEVEL=INFO
-PYTHON_VERSION=3.10
+VITE_API_URL=https://your-backend-url.railway.app
 ```
 
-## 🔧 Konfigurasi Files yang Sudah Disiapkan
+Ganti dengan URL backend dari Step 5.
 
-Railway akan otomatis membaca files berikut:
+#### Step 9: Get Frontend URL
 
-### 1. `railway.toml` - Railway Configuration
-```toml
-[build]
-builder = "NIXPACKS"
-buildCommand = "cd backend && pip install -r requirements.txt"
+1. Frontend Service → **"Settings"** → **"Domains"**
+2. Copy URL: `https://engmate-frontend-production.up.railway.app`
+3. Open in browser untuk test
 
-[deploy]
-startCommand = "cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT"
-healthcheckPath = "/api/"
-```
+---
 
-### 2. `nixpacks.toml` - Build Configuration
-Mengatur Python version dan dependencies installation.
+### Part 3: Final Configuration
 
-### 3. `Procfile` - Process Definition
-```
-web: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
-```
+#### Step 10: Update Backend CORS
 
-### 4. `backend/requirements.txt` - Python Dependencies
-Railway akan otomatis install semua dependencies.
+1. Go to Backend Service → **"Variables"**
+2. Update `CORS_ORIGINS`:
+   ```bash
+   CORS_ORIGINS=https://your-frontend-url.railway.app
+   ```
+3. Backend akan auto-redeploy
 
-## 📊 Automatic Features
+#### Step 11: Test End-to-End
 
-Railway akan otomatis:
+1. Open frontend URL
+2. Test semua features:
+   - Welcome page
+   - Dashboard
+   - Live Conversation
+   - Profile
+3. Check browser console (no CORS errors)
+4. Check Railway logs (both services)
+
+---
+
+## 📊 Railway Auto-Configuration
+
+Railway automatically detects and configures:
 
 ✅ **Detect Python**: Dari `requirements.txt`  
 ✅ **Install Dependencies**: `pip install -r requirements.txt`  
