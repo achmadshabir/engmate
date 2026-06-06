@@ -52,9 +52,9 @@ const GuidedLesson = () => {
       // Add assistant response
       const assistantMessage = {
         role: 'assistant',
-        text: response.macca_text,
+        text: response.engmate_text,
         feedback: response.feedback,
-        audioUrl: response.macca_audio_url
+        audioUrl: response.engmate_audio_url
       };
       setMessages(prev => [...prev, assistantMessage]);
       

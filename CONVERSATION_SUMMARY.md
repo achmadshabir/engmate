@@ -1,4 +1,4 @@
-# Conversation Summary - Macca Project
+# Conversation Summary - engmate Project
 
 ## Latest Update: Whisper Model Upgrade (2025-01-27)
 
@@ -12,8 +12,8 @@
 - **LLM**: Groq API (llama-3.1-8b-instant) - Fast text generation
 - **ASR**: HF Space (openai/whisper-small) - Better speech recognition
 - **TTS**: HF Space (VITS/MMS) - Text-to-speech
-- **Frontend**: Vercel (https://macca-id.vercel.app)
-- **Backend**: Vercel Serverless (https://macca-backend.vercel.app)
+- **Frontend**: Vercel (https://engmate-id.vercel.app)
+- **Backend**: Vercel Serverless (https://engmate-backend.vercel.app)
 
 ### Performance Metrics
 - **ASR Speed**: 5-10s per audio (acceptable for UX)
@@ -33,8 +33,8 @@
 ### Vercel Deployment
 - Successfully deployed frontend and backend
 - Resolved CORS, routing, and environment issues
-- Frontend: https://macca-id.vercel.app
-- Backend: https://macca-backend.vercel.app
+- Frontend: https://engmate-id.vercel.app
+- Backend: https://engmate-backend.vercel.app
 
 ### HuggingFace Spaces Solution
 - Created custom HF Spaces for ASR and TTS
@@ -47,7 +47,7 @@
 - `backend/app/providers/groq_llm.py` - New Groq provider
 - `backend/app/providers/huggingface_asr.py` - HF Space integration
 - `backend/app/providers/huggingface_tts.py` - HF Space integration
-- `backend/app/schemas/macca.py` - Flat feedback schema
+- `backend/app/schemas/engmate.py` - Flat feedback schema
 - `backend/app/api/session.py` - Updated to new schema
 
 ### Environment Variables
@@ -56,7 +56,7 @@
 - `HF_API_KEY` - HuggingFace authentication
 - `HF_ASR_MODEL_ID` - openai/whisper-small (upgraded)
 - `HF_TTS_MODEL_ID` - VITS/MMS
-- `CORS_ORIGINS` - https://macca-id.vercel.app
+- `CORS_ORIGINS` - https://engmate-id.vercel.app
 - `USE_MOCK_AI` - false (real AI only)
 
 ### Documentation Created
@@ -69,7 +69,7 @@
 ## Next Steps
 
 ### Immediate Testing
-1. ✅ Test microphone at https://macca-id.vercel.app
+1. ✅ Test microphone at https://engmate-id.vercel.app
 2. ✅ Verify improved transcription accuracy
 3. ✅ Monitor response times (should be 5-10s)
 

@@ -1,7 +1,7 @@
 # SRS Quick Reference
 
 ## Overview
-Simple Spaced Repetition System for vocabulary learning in Macca.
+Simple Spaced Repetition System for vocabulary learning in EngMate.
 
 ## Constants (app/services/srs.py)
 ```python

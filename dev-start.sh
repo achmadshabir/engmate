@@ -1,7 +1,7 @@
 #!/bin/bash
 # Skrip untuk menjalankan backend dan frontend sekaligus
 
-echo "🚀 Starting Macca Development Environment..."
+echo "🚀 Starting EngMate Development Environment..."
 
 # Cek apakah backend sudah setup
 if [ ! -d "backend/venv" ]; then
@@ -44,7 +44,7 @@ cd ..
 echo "   Frontend PID: $FRONTEND_PID"
 
 echo ""
-echo "✅ Macca Development Environment Started!"
+echo "✅ EngMate Development Environment Started!"
 echo ""
 echo "📍 URLs:"
 echo "   Backend:  http://localhost:8000"

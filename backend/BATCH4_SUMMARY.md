@@ -25,14 +25,14 @@
 **Startup Logs:**
 ```
 ==================================================
-Macca API Starting
+engmate API Starting
 USE_MOCK_AI: False
 AI Provider: HUGGING FACE
   LLM Model: SeaLLMs/SeaLLMs-v3-7B-Chat
   ASR Model: openai/whisper-large-v3-turbo
   TTS Model: audo/seamless-m4t-v2-large
   API Base: https://router.huggingface.co
-Database: localhost/macca
+Database: localhost/engmate
 Log Level: INFO
 ==================================================
 ```

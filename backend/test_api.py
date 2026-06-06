@@ -17,7 +17,7 @@ Base.metadata.create_all(bind=engine)
 client = TestClient(app)
 
 def test_endpoints():
-    print("Testing Macca API endpoints...")
+    print("Testing EngMate API endpoints...")
     
     # Test root endpoint
     response = client.get("/api/")
@@ -61,7 +61,7 @@ def test_endpoints():
     print(f"✅ POST /api/session/turn - Status: {response.status_code}")
     if response.status_code == 200:
         data = response.json()
-        print(f"   Reply: {data['macca_text'][:50]}...")
+        print(f"   Reply: {data['EngMate_text'][:50]}...")
     
     # Test vocabulary with auth
     vocab_id = None

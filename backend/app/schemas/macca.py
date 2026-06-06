@@ -92,8 +92,8 @@ class ConversationTurn(BaseModel):
     mode: Literal["live", "guided", "pronunciation"]
 
 class ConversationResponse(BaseModel):
-    macca_text: str
-    macca_audio_url: Optional[str] = None
+    engmate_text: str
+    engmate_audio_url: Optional[str] = None
     feedback: Optional[dict] = None
     next_step: Optional[str] = None
 

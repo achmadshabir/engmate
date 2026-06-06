@@ -53,12 +53,12 @@ async def synthesize_speech(self, text: str, language: str = "en") -> str:
 
 ### Priority 1: Enable Real ASR (Whisper)
 1. Fix Gradio API call in `huggingface_asr.py`
-2. Test with HF Space: https://abeachmad-macca-asr.hf.space
+2. Test with HF Space: https://abeachmad-engmate-asr.hf.space
 3. Set `USE_MOCK_AI=false` in backend/.env
 
 ### Priority 2: Enable Real TTS
 1. Fix Gradio API call in `huggingface_tts.py`
-2. Test with HF Space: https://abeachmad-macca-tts.hf.space
+2. Test with HF Space: https://abeachmad-engmate-tts.hf.space
 3. Ensure audio files are saved and served correctly
 
 ### Priority 3: Add Audio Player in Frontend

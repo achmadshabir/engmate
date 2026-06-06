@@ -3,10 +3,10 @@ import sys
 from gradio_client import Client
 
 print("Testing Gradio ASR Space...")
-print("Connecting to abeachmad/macca-asr...")
+print("Connecting to abeachmad/engmate-asr...")
 
 try:
-    client = Client("abeachmad/macca-asr")
+    client = Client("abeachmad/engmate-asr")
     print("✓ Connected successfully")
     
     # Test with a dummy audio file

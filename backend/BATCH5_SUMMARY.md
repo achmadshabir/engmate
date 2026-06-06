@@ -2,7 +2,7 @@
 
 ## Overview
 
-Batch 5 strengthens Macca's learning engine by:
+Batch 5 strengthens EngMate's learning engine by:
 1. Hardening LLM prompts with few-shot examples and mode-specific instructions
 2. Implementing a simple Spaced Repetition System (SRS) for vocabulary
 3. Making LLM behavior adapt to session modes (live_conversation, guided_lesson, pronunciation_coach)
@@ -179,7 +179,7 @@ The LLM prompt now branches based on `SessionContext.mode`:
 
 ### No Breaking Changes
 
-- `MaccaJsonResponse` schema unchanged
+- `EngMateJsonResponse` schema unchanged
 - `/api/session/turn` response shape unchanged
 - Only internal prompt content adjusted
 
@@ -323,7 +323,7 @@ Potential improvements for future batches:
 - `test_api.py` - Added SRS tests
 
 ### Unchanged (Verified Compatible)
-- `app/schemas/macca.py` - No schema changes
+- `app/schemas/EngMate.py` - No schema changes
 - `app/db/models.py` - No schema changes (fields already existed)
 - `app/api/session.py` - No changes (uses enhanced LLM provider transparently)
 - Frontend contracts - All backward compatible
@@ -383,7 +383,7 @@ No database migration needed. Existing vocabulary items:
 
 ## Summary
 
-Batch 5 successfully strengthens Macca's learning engine with:
+Batch 5 successfully strengthens EngMate's learning engine with:
 
 1. **Smarter LLM prompts**: Few-shot examples and mode-specific instructions produce more consistent, relevant feedback
 2. **Working SRS system**: Simple but effective spaced repetition for vocabulary learning

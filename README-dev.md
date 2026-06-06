@@ -1,6 +1,6 @@
-# Macca – Developer Guide (Internal)
+# EngMate – Developer Guide (Internal)
 
-> **Macca** is an AI English speaking coach for Indonesian learners, focused on **speaking & listening** practice with short, real-time, personalized feedback.
+> **EngMate** is an AI English speaking coach for Indonesian learners, focused on **speaking & listening** practice with short, real-time, personalized feedback.
 
 This document is the **single source of truth** for:
 - Data contracts (TypeScript types) between frontend & backend,
@@ -16,7 +16,7 @@ All implementations (frontend, backend, AI providers) **must** stay consistent w
 
 ### 1.1. Target & Use Cases
 
-Macca is designed for:
+EngMate is designed for:
 
 - Indonesian university students,
 - Fresh graduates & young professionals,
@@ -83,8 +83,8 @@ Backend responsibilities:
 2. Session management.
 3. Orchestration:
    - Store user audio → ASR → transcript,
-   - Build context → LLM → Macca JSON,
-   - LLM reply → TTS → Macca audio.
+   - Build context → LLM → EngMate JSON,
+   - LLM reply → TTS → EngMate audio.
 4. Persist:
    - Utterance history,
    - Feedback issues,

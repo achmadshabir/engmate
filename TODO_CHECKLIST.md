@@ -89,8 +89,8 @@
 
 ### Backend API Updates
 - [ ] Update response keys di backend:
-  - `macca_text` → `engmate_text`
-  - `macca_audio_url` → `engmate_audio_url`
+  - `engmate_text` (already updated)
+  - `engmate_audio_url` (already updated)
 - [ ] Update di file `backend/app/main.py` atau routes
 - [ ] Test API dengan Postman/Thunder Client
 

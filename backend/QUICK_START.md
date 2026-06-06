@@ -1,4 +1,4 @@
-# Quick Start Guide - Macca Backend
+# Quick Start Guide - EngMate Backend
 
 ## Development Mode (Mock AI)
 
@@ -27,12 +27,12 @@ python3 test_api.py
 cd backend
 
 # 1. Set up PostgreSQL
-createdb macca
+createdb engmate
 
 # 2. Edit .env
 USE_MOCK_AI=false
 HF_API_KEY=your_huggingface_token_here
-DATABASE_URL=postgresql://user:pass@localhost/macca
+DATABASE_URL=postgresql://user:pass@localhost/engmate
 
 # 3. Run migrations
 alembic revision --autogenerate -m "Initial schema"
@@ -70,7 +70,7 @@ HF_ASR_MODEL_ID=openai/whisper-large-v3-turbo
 HF_TTS_MODEL_ID=audo/seamless-m4t-v2-large
 
 # Database
-DATABASE_URL=postgresql://localhost/macca
+DATABASE_URL=postgresql://localhost/engmate
 
 # JWT
 JWT_SECRET_KEY=your-secret-key-change-in-production

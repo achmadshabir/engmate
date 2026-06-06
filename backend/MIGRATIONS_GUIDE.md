@@ -24,20 +24,20 @@ Download and install from https://www.postgresql.org/download/windows/
 ```bash
 # Using psql
 psql -U postgres
-CREATE DATABASE macca;
-CREATE USER macca_user WITH PASSWORD 'your_password';
-GRANT ALL PRIVILEGES ON DATABASE macca TO macca_user;
+CREATE DATABASE engmate;
+CREATE USER engmate_user WITH PASSWORD 'your_password';
+GRANT ALL PRIVILEGES ON DATABASE engmate TO engmate_user;
 \q
 
 # Or using createdb command
-createdb macca
+createdb engmate
 ```
 
 ### 3. Configure Environment
 
 Edit `backend/.env`:
 ```bash
-DATABASE_URL=postgresql://macca_user:your_password@localhost/macca
+DATABASE_URL=postgresql://engmate_user:your_password@localhost/engmate
 ```
 
 ## Running Migrations
@@ -145,7 +145,7 @@ Check your `DATABASE_URL` in `.env`:
 postgresql://username:password@host:port/database
 
 # Example
-postgresql://macca_user:password123@localhost:5432/macca
+postgresql://engmate_user:password123@localhost:5432/engmate
 ```
 
 ## Development Workflow
@@ -169,7 +169,7 @@ alembic upgrade head
 
 ```bash
 # In .env
-DATABASE_URL=postgresql://user:pass@localhost/macca
+DATABASE_URL=postgresql://user:pass@localhost/engmate
 
 # Run migrations
 alembic upgrade head
@@ -250,20 +250,20 @@ Current database schema:
 
 ```bash
 # PostgreSQL
-pg_dump -U macca_user macca > backup.sql
+pg_dump -U engmate_user engmate > backup.sql
 
 # Or with compression
-pg_dump -U macca_user macca | gzip > backup.sql.gz
+pg_dump -U engmate_user engmate | gzip > backup.sql.gz
 ```
 
 ### Restore
 
 ```bash
 # PostgreSQL
-psql -U macca_user macca < backup.sql
+psql -U engmate_user engmate < backup.sql
 
 # Or from compressed
-gunzip -c backup.sql.gz | psql -U macca_user macca
+gunzip -c backup.sql.gz | psql -U engmate_user engmate
 ```
 
 ## Production Deployment

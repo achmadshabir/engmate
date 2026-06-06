@@ -33,7 +33,7 @@ bash start.sh
 ### 2. Verify Backend Running
 ```bash
 curl http://localhost:8000/
-# Should return: {"status":"ok","message":"Macca API is running"}
+# Should return: {"status":"ok","message":"EngMate API is running"}
 ```
 
 ### 3. Test Recording di Browser
@@ -50,7 +50,7 @@ Audio chunk received: ... (multiple chunks)
 Recording stopped. Total chunks: X
 Audio blob created: XXXXX bytes
 Sending audio blob: XXXXX bytes, type: audio/webm
-Response received: {macca_text: "...", feedback: {...}}
+Response received: {engmate_text: "...", feedback: {...}}
 ```
 
 ## Jika Masih Error:

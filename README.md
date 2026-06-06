@@ -1,6 +1,6 @@
-# Macca – AI English Speaking Coach
+# EngMate – AI English Speaking Coach
 
-> **Macca** is an AI English speaking coach for Indonesian learners, focused on **speaking & listening** practice with short, real-time, personalized feedback.
+> **EngMate** is an AI English speaking coach for Indonesian learners, focused on **speaking & listening** practice with short, real-time, personalized feedback.
 
 ## Quick Start
 

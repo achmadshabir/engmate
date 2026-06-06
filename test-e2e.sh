@@ -1,10 +1,10 @@
 #!/bin/bash
-# Automated E2E test script for Macca backend
+# Automated E2E test script for EngMate backend
 
 BASE_URL="http://localhost:8000"
 TOKEN=""
 
-echo "🧪 Macca E2E Test Suite"
+echo "🧪 EngMate E2E Test Suite"
 echo "======================="
 echo ""
 echo "Checking if backend is running..."
@@ -56,7 +56,7 @@ echo ""
 echo "4. Testing conversation turn..."
 curl -s -X POST $BASE_URL/api/session/turn \
   -H "Content-Type: application/json" \
-  -d '{"user_text": "I go to office yesterday", "mode": "live"}' | grep -q '"macca_text"' && pass "Conversation turn" || fail "Conversation turn"
+  -d '{"user_text": "I go to office yesterday", "mode": "live"}' | grep -q '"EngMate_text"' && pass "Conversation turn" || fail "Conversation turn"
 
 # Test 5: Vocabulary (no auth)
 echo ""

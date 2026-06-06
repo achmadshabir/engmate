@@ -34,7 +34,7 @@ curl -X POST http://localhost:8000/api/session/turn \
   -H "Content-Type: application/json" \
   -d '{"user_text": "I go to office yesterday", "mode": "live"}'
 ```
-**Expected:** Returns macca_text with feedback
+**Expected:** Returns engmate_text with feedback
 
 ### 5. Vocabulary List (No Auth)
 ```bash

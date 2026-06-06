@@ -2,7 +2,7 @@
 
 ## Overview
 
-Macca uses environment variables to configure backend and frontend for different environments (development, production).
+EngMate uses environment variables to configure backend and frontend for different environments (development, production).
 
 ## Backend Environment Variables
 
@@ -18,7 +18,7 @@ cp .env.example .env
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `DATABASE_URL` | PostgreSQL connection string | `postgresql://localhost/macca` |
+| `DATABASE_URL` | PostgreSQL connection string | `postgresql://localhost/engmate` |
 | `USE_MOCK_AI` | Use mock AI providers (no external API) | `true` |
 | `HF_API_KEY` | Hugging Face API key (only if USE_MOCK_AI=false) | Empty |
 | `HF_API_BASE_URL` | Hugging Face Router API URL | `https://router.huggingface.co` |
@@ -197,8 +197,8 @@ services:
   db:
     image: postgres:15
     environment:
-      POSTGRES_DB: macca
-      POSTGRES_USER: macca
+      POSTGRES_DB: engmate
+      POSTGRES_USER: engmate
       POSTGRES_PASSWORD: ${DB_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql/data
@@ -210,14 +210,14 @@ volumes:
 ### Using Nginx
 
 ```nginx
-# /etc/nginx/sites-available/macca
+# /etc/nginx/sites-available/engmate
 server {
     listen 80;
     server_name yourdomain.com;
 
     # Frontend
     location / {
-        root /var/www/macca/frontend/build;
+        root /var/www/engmate/frontend/build;
         try_files $uri /index.html;
     }
 

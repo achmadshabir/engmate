@@ -1,7 +1,7 @@
 #!/bin/bash
 # Skrip untuk menghentikan backend dan frontend serta kill semua port
 
-echo "🛑 Stopping Macca Development Environment..."
+echo "🛑 Stopping EngMate Development Environment..."
 
 # Stop proses dari PID files
 if [ -f "logs/backend.pid" ]; then

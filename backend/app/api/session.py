@@ -154,7 +154,7 @@ async def process_conversation_turn(
         feedback["encouragement_id"] = "Perfect! Let's continue."
     
     return ConversationResponse(
-        macca_text=macca_response.reply,
+        engmate_text=macca_response.reply,
         feedback=feedback,
         next_step="step_3" if turn.mode == "guided" else None
     )
@@ -259,8 +259,8 @@ async def process_conversation_turn_audio(
         feedback["encouragement_id"] = "Perfect! Let's continue."
     
     return ConversationResponse(
-        macca_text=macca_response.reply,
-        macca_audio_url=macca_audio_url,
+        engmate_text=macca_response.reply,
+        engmate_audio_url=macca_audio_url,
         feedback=feedback,
         next_step="step_3" if mode == "guided" else None
     )

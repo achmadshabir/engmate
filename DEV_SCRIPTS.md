@@ -1,6 +1,6 @@
 # Development Scripts
 
-Skrip untuk mempermudah development Macca.
+Skrip untuk mempermudah development EngMate.
 
 ## Setup Awal
 
