@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 MAX_AUDIO_SIZE = 10 * 1024 * 1024
 from app.schemas.engmate import (
     ConversationTurn, ConversationResponse, 
-    UserProfile, SessionContext, MaccaFeedback, Drill
+    UserProfile, SessionContext, EngMateFeedback, Drill
 )
 from app.providers.base import LLMProvider, TTSProvider, ASRProvider
 from app.dependencies import get_llm_provider, get_tts_provider, get_asr_provider, get_current_user_optional, get_storage_service
@@ -104,7 +104,7 @@ async def process_conversation_turn(
     transcript = turn.user_text
     
     # Generate response from LLM
-    macca_response = await llm_provider.generate_macca_response(
+    macca_response = await llm_provider.generate_engmate_response(
         transcript, user_profile, session_context
     )
     
@@ -210,7 +210,7 @@ async def process_conversation_turn_audio(
     transcript = await asr_provider.transcribe_audio(audio_bytes)
     
     # Generate response from LLM
-    macca_response = await llm_provider.generate_macca_response(
+    macca_response = await llm_provider.generate_engmate_response(
         transcript, user_profile, session_context
     )
     

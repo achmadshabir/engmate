@@ -30,7 +30,7 @@ class PronunciationFeedback(BaseModel):
     tip: str
     severity: PronunciationSeverity
 
-class MaccaFeedback(BaseModel):
+class EngMateFeedback(BaseModel):
     better_sentence: Optional[str] = None
     grammar: List[GrammarFeedback] = []
     vocabulary: List[VocabularyFeedback] = []
@@ -42,7 +42,7 @@ class Drill(BaseModel):
     sentence: Optional[str] = None
     question: Optional[str] = None
 
-class MaccaJsonResponse(BaseModel):
+class EngMateJsonResponse(BaseModel):
     version: Optional[str] = "1.0"
     reply: str
     grammar_feedback: List[dict] = []

@@ -1,5 +1,5 @@
 from typing import Protocol
-from app.schemas.engmate import MaccaJsonResponse, UserProfile, SessionContext
+from app.schemas.engmate import EngMateJsonResponse, UserProfile, SessionContext
 
 class ASRProvider(Protocol):
     async def transcribe_audio(self, audio_bytes: bytes, language: str = "en") -> str:
@@ -7,12 +7,12 @@ class ASRProvider(Protocol):
         ...
 
 class LLMProvider(Protocol):
-    async def generate_macca_response(
+    async def generate_engmate_response(
         self, 
         user_text: str, 
         user_profile: UserProfile, 
         session_context: SessionContext
-    ) -> MaccaJsonResponse:
+    ) -> EngMateJsonResponse:
         """Generate EngMate's response with feedback"""
         ...
 

@@ -44,7 +44,7 @@ async def analyze_pronunciation(
     prompt = f"Analyze pronunciation of the word '{analysis.word}'. Provide feedback on common pronunciation issues for Indonesian learners."
     
     try:
-        response = await llm_provider.generate_macca_response(prompt, user_profile, session_context)
+        response = await llm_provider.generate_engmate_response(prompt, user_profile, session_context)
         
         # Convert to legacy format
         feedback = []

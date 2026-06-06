@@ -7,7 +7,7 @@ from app.config import settings
 
 logger = logging.getLogger(__name__)
 from app.schemas.engmate import (
-    MaccaJsonResponse, MaccaFeedback, GrammarFeedback, 
+    EngMateJsonResponse, EngMateFeedback, GrammarFeedback, 
     VocabularyFeedback, PronunciationFeedback, Drill,
     UserProfile, SessionContext
 )
@@ -19,12 +19,12 @@ class HuggingFaceLLMProvider:
         self.base_url = settings.hf_api_base_url
         logger.info(f"Initialized HF LLM Provider with model: {self.model_id}, base: {self.base_url}")
     
-    async def generate_macca_response(
+    async def generate_engmate_response(
         self, 
         user_text: str, 
         user_profile: UserProfile, 
         session_context: SessionContext
-    ) -> MaccaJsonResponse:
+    ) -> EngMateJsonResponse:
         """Generate EngMate's response using HuggingFace LLM"""
         
         # Early exit if no API key - should never be called in this case
@@ -247,7 +247,7 @@ Now respond to the user's input following these examples."""
         user_text: str, 
         user_profile: UserProfile, 
         session_context: SessionContext
-    ) -> MaccaJsonResponse:
+    ) -> EngMateJsonResponse:
         """Parse LLM response and extract JSON"""
         
         # Try to extract JSON from the response
@@ -257,10 +257,10 @@ Now respond to the user's input following these examples."""
                 json_str = json_match.group(0)
                 data = json.loads(json_str)
                 
-                # Validate and create MaccaJsonResponse
-                return MaccaJsonResponse(
+                # Validate and create EngMateJsonResponse
+                return EngMateJsonResponse(
                     reply=data.get("reply", "Great! Let's continue practicing."),
-                    feedback=MaccaFeedback(
+                    feedback=EngMateFeedback(
                         better_sentence=data.get("feedback", {}).get("better_sentence"),
                         grammar=[
                             GrammarFeedback(**g) for g in data.get("feedback", {}).get("grammar", [])

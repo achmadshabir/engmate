@@ -1,23 +1,23 @@
 import asyncio
 from app.schemas.engmate import (
-    MaccaJsonResponse, MaccaFeedback, GrammarFeedback, 
+    EngMateJsonResponse, EngMateFeedback, GrammarFeedback, 
     VocabularyFeedback, PronunciationFeedback, Drill,
     UserProfile, SessionContext
 )
 
 class MockLLMProvider:
-    async def generate_macca_response(
+    async def generate_engmate_response(
         self, 
         user_text: str, 
         user_profile: UserProfile, 
         session_context: SessionContext
-    ) -> MaccaJsonResponse:
+    ) -> EngMateJsonResponse:
         await asyncio.sleep(1)  # Simulate processing
         
         if session_context.mode == "live_conversation":
-            return MaccaJsonResponse(
+            return EngMateJsonResponse(
                 reply=f"That's interesting! You mentioned '{user_text[:30]}...'. Can you tell me more about that?",
-                feedback=MaccaFeedback(
+                feedback=EngMateFeedback(
                     better_sentence="I went to the office yesterday." if "go" in user_text.lower() else None,
                     grammar=[
                         GrammarFeedback(
@@ -40,17 +40,17 @@ class MockLLMProvider:
             )
         
         elif session_context.mode == "guided_lesson":
-            return MaccaJsonResponse(
+            return EngMateJsonResponse(
                 reply="Great answer! Now let's move to the next part of our lesson.",
-                feedback=MaccaFeedback(),
+                feedback=EngMateFeedback(),
                 drills=[],
                 next_prompt="Tell me about your work experience."
             )
         
         else:  # pronunciation_coach
-            return MaccaJsonResponse(
+            return EngMateJsonResponse(
                 reply="Good attempt! Let's practice that sound again.",
-                feedback=MaccaFeedback(
+                feedback=EngMateFeedback(
                     pronunciation=[
                         PronunciationFeedback(
                             word=user_text.split()[0] if user_text.split() else "word",

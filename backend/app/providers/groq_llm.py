@@ -3,7 +3,7 @@ import json
 import logging
 from typing import Optional
 from app.providers.base import LLMProvider
-from app.schemas.engmate import UserProfile, SessionContext, MaccaJsonResponse
+from app.schemas.engmate import UserProfile, SessionContext, EngMateJsonResponse
 from app.config import settings
 
 logger = logging.getLogger(__name__)
@@ -43,12 +43,12 @@ IMPORTANT: Always respond in ENGLISH. Keep replies natural and conversational.""
         
         return base_prompt
     
-    async def generate_macca_response(
+    async def generate_engmate_response(
         self, 
         user_text: str, 
         user_profile: UserProfile, 
         session_context: SessionContext
-    ) -> MaccaJsonResponse:
+    ) -> EngMateJsonResponse:
         system_prompt = self._build_system_prompt(user_profile, session_context)
         
         messages = [
@@ -81,7 +81,7 @@ IMPORTANT: Always respond in ENGLISH. Keep replies natural and conversational.""
                 content = result["choices"][0]["message"]["content"]
                 
                 data = json.loads(content)
-                return MaccaJsonResponse(
+                return EngMateJsonResponse(
                     reply=data.get("reply", "I'm here to help you practice English!"),
                     grammar_feedback=data.get("grammar_feedback", []),
                     vocabulary_feedback=data.get("vocabulary_feedback", []),
