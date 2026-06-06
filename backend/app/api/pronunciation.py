@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, UploadFile, File, Form, HTTPException
 from typing import List, Optional
 from sqlalchemy.orm import Session as DBSession
-from app.schemas.macca import PronunciationAnalysis, PronunciationFeedbackLegacy
+from app.schemas.engmate import PronunciationAnalysis, PronunciationFeedbackLegacy
 from app.dependencies import mock_user_profile, get_asr_provider, get_llm_provider, get_current_user_optional, get_storage_service
 from app.providers.base import ASRProvider, LLMProvider
 from app.services.storage import StorageService
@@ -25,7 +25,7 @@ async def analyze_pronunciation(
     """Text-only pronunciation analysis - uses AI for feedback"""
     
     # Use LLM to generate pronunciation feedback
-    from app.schemas.macca import UserProfile, SessionContext
+    from app.schemas.engmate import UserProfile, SessionContext
     
     user_profile = UserProfile(
         id="demo",

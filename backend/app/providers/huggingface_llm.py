@@ -6,7 +6,7 @@ from typing import Optional
 from app.config import settings
 
 logger = logging.getLogger(__name__)
-from app.schemas.macca import (
+from app.schemas.engmate import (
     MaccaJsonResponse, MaccaFeedback, GrammarFeedback, 
     VocabularyFeedback, PronunciationFeedback, Drill,
     UserProfile, SessionContext

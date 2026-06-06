@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 # Max audio file size: 10MB
 MAX_AUDIO_SIZE = 10 * 1024 * 1024
-from app.schemas.macca import (
+from app.schemas.engmate import (
     ConversationTurn, ConversationResponse, 
     UserProfile, SessionContext, MaccaFeedback, Drill
 )

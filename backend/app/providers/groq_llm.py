@@ -3,7 +3,7 @@ import json
 import logging
 from typing import Optional
 from app.providers.base import LLMProvider
-from app.schemas.macca import UserProfile, SessionContext, MaccaJsonResponse
+from app.schemas.engmate import UserProfile, SessionContext, MaccaJsonResponse
 from app.config import settings
 
 logger = logging.getLogger(__name__)

@@ -9,7 +9,7 @@ os.environ["HF_API_KEY"] = ""
 sys.path.insert(0, os.path.dirname(__file__))
 
 from app.providers.huggingface_llm import HuggingFaceLLMProvider
-from app.schemas.macca import UserProfile, SessionContext
+from app.schemas.engmate import UserProfile, SessionContext
 
 def test_json_extraction():
     """Test that JSON can be extracted from various response formats"""

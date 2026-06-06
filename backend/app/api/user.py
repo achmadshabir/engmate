@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from sqlalchemy import func
 from typing import Optional
-from app.schemas.macca import UserProfile, UserProfileUpdate
+from app.schemas.engmate import UserProfile, UserProfileUpdate
 from app.dependencies import get_current_user_optional, mock_user_profile
 from app.db.database import get_db
 from app.db.models import User, Session as DBSession, FeedbackIssue, Utterance, VocabularyItem as DBVocabularyItem

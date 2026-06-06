@@ -17,13 +17,13 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Create FastAPI app
-app = FastAPI(title="Macca API", description="AI English Speaking Coach")
+app = FastAPI(title="EngMate API", description="AI English Speaking Coach")
 
 # Startup configuration validation
 def validate_startup_config():
     """Validate configuration at startup and fail fast if misconfigured"""
     logger.info("="*50)
-    logger.info("Macca API Starting")
+    logger.info("EngMate API Starting")
     logger.info(f"USE_MOCK_AI: {settings.use_mock_ai}")
     
     if settings.use_mock_ai:
@@ -79,11 +79,11 @@ app.include_router(lessons.router, prefix="/api")
 
 @app.get("/api/")
 async def root():
-    return {"message": "Macca API - Modular Backend"}
+    return {"message": "EngMate API - Modular Backend"}
 
 @app.get("/")
 async def health_check():
-    return {"status": "ok", "message": "Macca API is running"}
+    return {"status": "ok", "message": "EngMate API is running"}
 
 # Add to backend/app/main.py
 from fastapi.responses import FileResponse

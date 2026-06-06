@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from typing import List
-from app.schemas.macca import Lesson
+from app.schemas.engmate import Lesson
 
 router = APIRouter(tags=["lessons"])
 

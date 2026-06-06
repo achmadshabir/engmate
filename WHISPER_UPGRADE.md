@@ -5,7 +5,7 @@ Upgraded ASR model from `whisper-base` to `whisper-small` for better transcripti
 
 ## Changes Made
 
-### HuggingFace Space: macca-asr
+### HuggingFace Space: engmate-asr
 **File**: `app.py` (line 6)
 
 **Before**:
@@ -43,22 +43,22 @@ whisper = pipeline("automatic-speech-recognition", model="openai/whisper-small")
 ## Testing
 
 ### HF Space Status
-- **URL**: https://abeachmad-macca-asr.hf.space
+- **URL**: https://abeachmad-engmate-asr.hf.space
 - **Status**: ✅ Running
 - **Model**: openai/whisper-small
 
 ### Backend Integration
-- **URL**: https://macca-backend.vercel.app
+- **URL**: https://engmate-backend.vercel.app
 - **Status**: ✅ Running
 - **ASR Provider**: HuggingFaceASRProvider (calls HF Space)
 
 ### Frontend
-- **URL**: https://macca-id.vercel.app
+- **URL**: https://engmate-id.vercel.app
 - **Microphone**: ✅ Ready to test
 
 ## Next Steps
 
-1. **Test microphone recording** at https://macca-id.vercel.app
+1. **Test microphone recording** at https://engmate-id.vercel.app
 2. **Compare transcription quality** with previous version
 3. **Monitor response times** (should be 5-10s per audio)
 4. **Consider whisper-medium** if need even better accuracy (but slower)

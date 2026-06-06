@@ -31,7 +31,7 @@ The automated script tests:
 ## Expected Output
 
 ```
-🧪 Macca E2E Test Suite
+🧪 EngMate E2E Test Suite
 =======================
 
 Checking if backend is running...

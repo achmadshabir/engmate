@@ -1,5 +1,5 @@
 import asyncio
-from app.schemas.macca import (
+from app.schemas.engmate import (
     MaccaJsonResponse, MaccaFeedback, GrammarFeedback, 
     VocabularyFeedback, PronunciationFeedback, Drill,
     UserProfile, SessionContext

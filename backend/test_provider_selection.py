@@ -51,7 +51,7 @@ def test_hf_providers_not_instantiated():
 def test_mock_provider_behavior():
     """Verify mock providers return expected responses without network calls"""
     import asyncio
-    from app.schemas.macca import UserProfile, SessionContext
+    from app.schemas.engmate import UserProfile, SessionContext
     
     llm = get_llm_provider()
     
@@ -70,7 +70,7 @@ def test_mock_provider_behavior():
     )
     
     # Call the mock provider
-    response = asyncio.run(llm.generate_macca_response(
+    response = asyncio.run(llm.generate_engmate_response(
         "I go to office yesterday",
         user_profile,
         session_context

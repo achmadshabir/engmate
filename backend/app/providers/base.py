@@ -1,5 +1,5 @@
 from typing import Protocol
-from app.schemas.macca import MaccaJsonResponse, UserProfile, SessionContext
+from app.schemas.engmate import MaccaJsonResponse, UserProfile, SessionContext
 
 class ASRProvider(Protocol):
     async def transcribe_audio(self, audio_bytes: bytes, language: str = "en") -> str:

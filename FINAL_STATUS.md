@@ -1,4 +1,4 @@
-# Final Status - Macca Audio Features
+# Final Status - EngMate Audio Features
 
 ## ✅ WORKING
 
@@ -34,7 +34,7 @@
 
 **Evidence**: Backend logs show:
 ```
-HTTP Request: POST https://abeachmad-macca-asr.hf.space/gradio_api/call/transcribe "HTTP/1.1 500 Internal Server Error"
+HTTP Request: POST https://abeachmad-EngMate-asr.hf.space/gradio_api/call/transcribe "HTTP/1.1 500 Internal Server Error"
 ```
 
 ### 2. TTS (Text-to-Speech)
@@ -53,7 +53,7 @@ From HF docs:
 ```python
 from gradio_client import Client, handle_file
 
-client = Client("abeachmad/macca-asr")
+client = Client("abeachmad/EngMate-asr")
 result = client.predict(
     audio=handle_file('path/to/audio.wav'),  # ← Needs file path, not bytes
     api_name="/transcribe"
