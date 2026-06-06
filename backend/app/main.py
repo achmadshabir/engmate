@@ -56,7 +56,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Create storage directory only if not on serverless (Vercel has read-only filesystem)
+# Create storage directory only if not on serverless (serverless platforms may have read-only filesystem)
 try:
     storage_dir = Path("./storage")
     storage_dir.mkdir(exist_ok=True)

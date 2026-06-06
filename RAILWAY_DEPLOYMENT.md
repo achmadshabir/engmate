@@ -224,7 +224,7 @@ railway run cd backend && alembic upgrade head
 
 ### 4. Update Frontend
 
-Update environment variable di frontend (Vercel):
+Update environment variable di frontend (Railway):
 ```env
 VITE_API_URL=https://your-railway-url.up.railway.app
 ```
@@ -270,7 +270,7 @@ LOG_LEVEL=INFO
 ```bash
 DATABASE_URL=<auto-provided-by-postgresql-plugin>
 JWT_SECRET_KEY=<strong-random-secret>
-CORS_ORIGINS=https://your-frontend.vercel.app
+CORS_ORIGINS=https://your-frontend.railway.app
 USE_MOCK_AI=false
 GROQ_API_KEY=<your-groq-key>
 GROQ_MODEL_ID=llama-3.1-8b-instant
