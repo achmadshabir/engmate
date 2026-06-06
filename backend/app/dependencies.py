@@ -10,9 +10,7 @@ from jose import JWTError, jwt
 from app.config import settings
 from app.db.database import get_db
 from app.db.models import User
-from app.providers.llm import get_llm_provider
-from app.providers.tts import get_tts_provider
-from app.providers.asr import get_asr_provider
+from app.providers import get_llm_provider, get_tts_provider, get_asr_provider
 from app.services.storage import get_storage_service
 
 # Security
