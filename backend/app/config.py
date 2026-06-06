@@ -3,7 +3,7 @@ from typing import Optional
 
 class Settings(BaseSettings):
     # Database
-    database_url: str = "postgresql://localhost/macca"
+    database_url: str = "postgresql://localhost/engmate"
     
     # Hugging Face (ASR/TTS)
     hf_api_key: Optional[str] = None

@@ -4,11 +4,11 @@
 
 ### 1. LLM Provider (huggingface_llm.py)
 - ✅ Reads `HF_API_KEY` and `HF_LLM_MODEL_ID` from config (no hardcoded values)
-- ✅ Implements `generate_macca_response(user_profile, session_context, transcript)` → `MaccaJsonResponse`
+- ✅ Implements `generate_EngMate_response(user_profile, session_context, transcript)` → `EngMateJsonResponse`
 - ✅ Builds clear prompt instructing LLM to return strict JSON
 - ✅ Implements JSON extraction helper that:
   - Extracts JSON substring from raw output using regex
-  - Parses into `MaccaJsonResponse` Pydantic schema
+  - Parses into `EngMateJsonResponse` Pydantic schema
   - Logs parsing errors with truncated raw text
   - Returns safe fallback on parsing failure (never crashes)
 - ✅ Uses `httpx.AsyncClient` with 30s timeout
@@ -60,7 +60,7 @@
 ## Test Results
 
 ```
-Testing Macca API endpoints...
+Testing EngMate API endpoints...
 ✅ GET /api/ - Status: 200
 ✅ POST /api/auth/signup - Status: 200
 ✅ GET /api/user/profile - Status: 200

@@ -13,7 +13,7 @@ class LLMProvider(Protocol):
         user_profile: UserProfile, 
         session_context: SessionContext
     ) -> MaccaJsonResponse:
-        """Generate Macca's response with feedback"""
+        """Generate EngMate's response with feedback"""
         ...
 
 class TTSProvider(Protocol):

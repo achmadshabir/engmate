@@ -135,7 +135,7 @@ if len(audio_bytes) > MAX_AUDIO_SIZE:
 **Startup Logs:**
 ```
 ==================================================
-Macca API Starting
+EngMate API Starting
 USE_MOCK_AI: True
 AI Provider: MOCK (no external API calls)
 Database: sqlite:///./test.db
@@ -266,7 +266,7 @@ HF_TTS_MODEL_ID=audo/seamless-m4t-v2-large
 LOG_LEVEL=INFO                # DEBUG, INFO, WARNING, ERROR, CRITICAL
 
 # Database
-DATABASE_URL=postgresql://localhost/macca
+DATABASE_URL=postgresql://localhost/EngMate
 
 # JWT
 JWT_SECRET_KEY=your-secret-key

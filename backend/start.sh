@@ -1,7 +1,7 @@
 #!/bin/bash
-# Macca Backend Startup Script
+# EngMate Backend Startup Script
 
-echo "🚀 Starting Macca Backend..."
+echo "🚀 Starting EngMate Backend..."
 
 # Activate virtual environment
 source venv/bin/activate

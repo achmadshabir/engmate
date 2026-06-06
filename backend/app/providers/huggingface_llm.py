@@ -25,7 +25,7 @@ class HuggingFaceLLMProvider:
         user_profile: UserProfile, 
         session_context: SessionContext
     ) -> MaccaJsonResponse:
-        """Generate Macca's response using HuggingFace LLM"""
+        """Generate EngMate's response using HuggingFace LLM"""
         
         # Early exit if no API key - should never be called in this case
         if not self.api_key:
@@ -97,7 +97,7 @@ class HuggingFaceLLMProvider:
         }
         mode_instruction = mode_instructions.get(session_context.mode, mode_instructions["live_conversation"])
         
-        prompt = f"""You are Macca, an AI English speaking coach for Indonesian learners.
+        prompt = f"""You are EngMate, an AI English speaking coach for Indonesian learners.
 
 IMPORTANT: Always respond in ENGLISH. Your reply must be in English, but explanations can be in {lang} if explanation_language is 'id'.
 

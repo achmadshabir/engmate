@@ -49,7 +49,7 @@
 - Saves user audio using `StorageService`
 - Transcribes audio using `ASRProvider`
 - Generates LLM response based on transcript
-- Generates TTS audio for Macca's reply
+- Generates TTS audio for EngMate's reply
 - Persists both utterances with audio URLs
 - Maintains same response shape as text endpoint
 
@@ -242,7 +242,7 @@ Body: {"inputs": "text to speak"}
 2. Backend saves audio to `storage/audio/<uuid>.wav`
 3. ASR transcribes audio to text
 4. LLM generates response based on transcript
-5. TTS synthesizes Macca's reply to audio
+5. TTS synthesizes EngMate's reply to audio
 6. Both utterances saved to DB with audio URLs
 7. Response includes transcript and audio URLs
 

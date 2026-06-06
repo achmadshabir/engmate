@@ -17,7 +17,7 @@ class GroqLLMProvider(LLMProvider):
     def _build_system_prompt(self, user_profile: UserProfile, session_context: SessionContext) -> str:
         mode = session_context.mode
         
-        base_prompt = f"""You are Macca, an AI English speaking coach for Indonesian learners.
+        base_prompt = f"""You are EngMate, an AI English speaking coach for Indonesian learners.
 
 User Profile:
 - Name: {user_profile.name}

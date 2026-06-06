@@ -3,17 +3,17 @@
 ## Prerequisites
 
 - PostgreSQL installed and running
-- Database created: `macca`
+- Database created: `engmate`
 
 ## Quick Setup
 
 ```bash
 # Create PostgreSQL database
-createdb macca
+createdb engmate
 
 # Or using psql
 psql -U postgres
-CREATE DATABASE macca;
+CREATE DATABASE engmate;
 \q
 ```
 
@@ -22,7 +22,7 @@ CREATE DATABASE macca;
 Update `.env` with your database URL:
 
 ```bash
-DATABASE_URL=postgresql://username:password@localhost/macca
+DATABASE_URL=postgresql://username:password@localhost/engmate
 ```
 
 ## Running Migrations
