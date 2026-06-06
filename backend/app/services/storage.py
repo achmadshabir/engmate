@@ -20,3 +20,9 @@ class StorageService:
             f.write(file_bytes)
         
         return f"/static/audio/{filename}"
+
+def get_storage_service() -> StorageService:
+    """Factory function for StorageService dependency injection"""
+    # Use Railway's storage path if available, fallback to /tmp
+    storage_dir = os.environ.get("STORAGE_DIR", "/tmp/storage")
+    return StorageService(storage_dir=storage_dir)
