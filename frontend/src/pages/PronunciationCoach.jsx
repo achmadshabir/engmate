@@ -4,11 +4,11 @@ import LearnerContextBar from '@/components/LearnerContextBar';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { useMacca } from '@/context/MaccaContext';
+import { useEngMate } from '@/context/EngMateContext';
 import { Mic, Volume2 } from 'lucide-react';
 
 const PronunciationCoach = () => {
-  const { analyzePronunciation, userProfile } = useMacca();
+  const { analyzePronunciation, userProfile } = useEngMate();
   const [selectedSound, setSelectedSound] = useState(null);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isRecording, setIsRecording] = useState(false);

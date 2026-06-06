@@ -5,12 +5,12 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { useMacca } from '@/context/MaccaContext';
+import { useEngMate } from '@/context/EngMateContext';
 import { User, Target, Languages, Award } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const Profile = () => {
-  const { userProfile, updateUserProfile } = useMacca();
+  const { userProfile, updateUserProfile } = useEngMate();
   const { toast } = useToast();
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({

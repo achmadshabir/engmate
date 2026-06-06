@@ -98,7 +98,7 @@ const VoiceInput = ({ onSubmit, disabled = false, placeholder = "Type or speak..
 
   const getPlaceholder = () => {
     if (micState === 'recording') return 'Listening...';
-    if (micState === 'thinking') return 'Macca is thinking...';
+    if (micState === 'thinking') return 'EngMate is thinking...';
     return placeholder;
   };
 

@@ -1,6 +1,6 @@
 import "@/App.css";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { MaccaProvider } from "@/context/MaccaContext";
+import { EngMateProvider } from "@/context/EngMateContext";
 import { Toaster } from "@/components/ui/toaster";
 
 // Pages
@@ -13,7 +13,7 @@ import Profile from "@/pages/Profile";
 
 function App() {
   return (
-    <MaccaProvider>
+    <EngMateProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Welcome />} />
@@ -26,7 +26,7 @@ function App() {
         </Routes>
       </BrowserRouter>
       <Toaster />
-    </MaccaProvider>
+    </EngMateProvider>
   );
 }
 

@@ -1,9 +1,9 @@
 import React from 'react';
-import { useMacca } from '@/context/MaccaContext';
+import { useEngMate } from '@/context/EngMateContext';
 import { Badge } from '@/components/ui/badge';
 
 const LearnerContextBar = () => {
-  const { userProfile } = useMacca();
+  const { userProfile } = useEngMate();
 
   const explanationText = userProfile.explanation_language === 'id' 
     ? 'Bahasa Indonesia' 

@@ -4,17 +4,17 @@ import axios from 'axios';
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || '';
 const API = BACKEND_URL ? `${BACKEND_URL}/api` : '/api';
 
-const MaccaContext = createContext();
+const EngMateContext = createContext();
 
-export const useMacca = () => {
-  const context = useContext(MaccaContext);
+export const useEngMate = () => {
+  const context = useContext(EngMateContext);
   if (!context) {
-    throw new Error('useMacca must be used within MaccaProvider');
+    throw new Error('useEngMate must be used within EngMateProvider');
   }
   return context;
 };
 
-export const MaccaProvider = ({ children }) => {
+export const EngMateProvider = ({ children }) => {
   const [userProfile, setUserProfile] = useState({
     id: '',
     name: 'User',
@@ -133,5 +133,5 @@ export const MaccaProvider = ({ children }) => {
     getLesson
   };
 
-  return <MaccaContext.Provider value={value}>{children}</MaccaContext.Provider>;
+  return <EngMateContext.Provider value={value}>{children}</EngMateContext.Provider>;
 };

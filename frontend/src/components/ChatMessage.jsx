@@ -7,7 +7,7 @@ const ChatMessage = ({ role, text, feedback, audioUrl, isThinking = false }) => 
   const audioRef = useRef(null);
   
   useEffect(() => {
-    // Use browser TTS for Macca's responses (works in production)
+    // Use browser TTS for EngMate's responses (works in production)
     if (!isUser && text && !audioUrl) {
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = 'en-US';
@@ -27,7 +27,7 @@ const ChatMessage = ({ role, text, feedback, audioUrl, isThinking = false }) => 
       <div className="flex justify-start mb-4">
         <Card className="max-w-[80%] p-4 bg-slate-800 border-slate-700">
           <div className="flex items-center gap-2 text-slate-400 text-sm mb-2">
-            <span>Macca is analyzing your speech...</span>
+            <span>EngMate is analyzing your speech...</span>
           </div>
           <Skeleton className="h-4 w-full mb-2 bg-slate-700" />
           <Skeleton className="h-4 w-3/4 bg-slate-700" />

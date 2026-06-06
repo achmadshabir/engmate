@@ -5,12 +5,12 @@ import VoiceInput from '@/components/VoiceInput';
 import ChatMessage from '@/components/ChatMessage';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import { useMacca } from '@/context/MaccaContext';
+import { useEngMate } from '@/context/EngMateContext';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Badge } from '@/components/ui/badge';
 
 const GuidedLesson = () => {
-  const { sendConversationTurn, getLesson } = useMacca();
+  const { sendConversationTurn, getLesson } = useEngMate();
   const [lesson, setLesson] = useState(null);
   const [currentStep, setCurrentStep] = useState(1);
   const [messages, setMessages] = useState([]);

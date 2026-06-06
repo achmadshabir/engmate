@@ -13,6 +13,14 @@ module.exports = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		colors: {
+  			// EngMate Brand Colors
+  			engmate: {
+  				primary: '#3B82F6', // Friendly Tech Blue
+  				accent: '#F59E0B', // Warm Amber
+  				bg: '#F8FAFC', // Soft Slate
+  				text: '#1E293B' // Dark Slate
+  			},
+  			// Shadcn UI Integration
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -53,6 +61,10 @@ module.exports = {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			}
+  		},
+  		fontFamily: {
+  			heading: ['Poppins', 'sans-serif'],
+  			body: ['Inter', 'sans-serif']
   		},
   		keyframes: {
   			'accordion-down': {

@@ -4,15 +4,15 @@ import LearnerContextBar from '@/components/LearnerContextBar';
 import VoiceInput from '@/components/VoiceInput';
 import ChatMessage from '@/components/ChatMessage';
 import { Card } from '@/components/ui/card';
-import { useMacca } from '@/context/MaccaContext';
+import { useEngMate } from '@/context/EngMateContext';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
 const LiveConversation = () => {
-  const { sendConversationTurn } = useMacca();
+  const { sendConversationTurn } = useEngMate();
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
-      text: "Hi! I'm Macca, your English speaking coach. Let's have a natural conversation. What would you like to talk about today?",
+      text: "Hi! I'm EngMate, your friendly AI English tutor. Let's chat and practice together! What would you like to talk about today?",
       feedback: null
     }
   ]);
