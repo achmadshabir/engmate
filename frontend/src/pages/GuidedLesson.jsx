@@ -59,7 +59,7 @@ const GuidedLesson = () => {
       setMessages(prev => [...prev, assistantMessage]);
       
       // Check if should move to next step
-      if (response.feedback?.step_complete && currentStep < lesson.steps.length) {
+      if (response.feedback?.step_complete && currentStep < (lesson?.steps?.length || 0)) {
         setCurrentStep(prev => prev + 1);
       }
     } catch (error) {
@@ -68,6 +68,11 @@ const GuidedLesson = () => {
       setIsThinking(false);
     }
   };
+
+  // Safe progress calculation with null checks
+  const progressPercent = lesson?.steps?.length 
+    ? (currentStep / lesson.steps.length) * 100 
+    : 0;
 
   if (!lesson) {
     return (
@@ -78,8 +83,6 @@ const GuidedLesson = () => {
       </Layout>
     );
   }
-
-  const progressPercent = (currentStep / lesson.steps.length) * 100;
 
   return (
     <Layout>
@@ -101,12 +104,14 @@ const GuidedLesson = () => {
             <div className="space-y-3">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-sm text-slate-400">Progress</span>
-                <span className="text-sm text-cyan-400 font-semibold">Step {currentStep} of {lesson.steps.length}</span>
+                <span className="text-sm text-cyan-400 font-semibold">
+                  Step {currentStep} of {lesson?.steps?.length || 0}
+                </span>
               </div>
               <Progress value={progressPercent} className="h-2" />
               
               <div className="mt-4 space-y-2">
-                {lesson.steps.map((step, index) => (
+                {lesson?.steps?.map((step, index) => (
                   <div
                     key={index}
                     className={`flex items-center gap-3 text-sm ${
