@@ -43,22 +43,22 @@ const Dashboard = () => {
         {/* Welcome Header */}
         <div className="mb-10">
           <div className="flex items-center gap-3 mb-4">
-            <h1 className="font-heading text-5xl font-bold text-slate-100">
+            <h1 className="font-heading text-5xl font-bold text-slate-800">
               Welcome back, {userProfile.name}! 
             </h1>
             <span className="text-4xl">👋</span>
           </div>
-          <p className="font-body text-lg text-slate-300">
+          <p className="font-body text-lg text-slate-600">
             Ready to level up your English today? Choose your learning mode below
           </p>
         </div>
 
         {/* Stats Cards - Bento Style */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-          <Card className="p-6 bg-gradient-to-br from-blue-600 to-blue-700 border-0 rounded-2xl text-white shadow-xl">
+          <Card className="p-6 bg-gradient-to-br from-blue-500 to-cyan-500 border-0 rounded-2xl text-white shadow-xl">
             <div className="flex items-center justify-between">
               <div>
-                <p className="font-body text-sm text-blue-50 mb-1">Current Level</p>
+                <p className="font-body text-sm text-blue-100 mb-1">Current Level</p>
                 <p className="font-heading text-4xl font-bold">{userProfile.level}</p>
               </div>
               <div className="h-14 w-14 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
@@ -67,11 +67,11 @@ const Dashboard = () => {
             </div>
           </Card>
 
-          <Card className="p-6 bg-slate-700/80 backdrop-blur-sm border-2 border-slate-600 rounded-2xl shadow-lg">
+          <Card className="p-6 bg-white/80 backdrop-blur-sm border-2 border-slate-200 rounded-2xl shadow-lg">
             <div className="flex items-center justify-between">
               <div>
-                <p className="font-body text-sm text-slate-300 mb-1">Learning Goal</p>
-                <p className="font-heading text-xl font-semibold text-slate-100">{userProfile.goal}</p>
+                <p className="font-body text-sm text-slate-500 mb-1">Learning Goal</p>
+                <p className="font-heading text-xl font-semibold text-slate-800">{userProfile.goal}</p>
               </div>
               <div className="h-14 w-14 bg-gradient-to-br from-amber-500 to-orange-500 rounded-xl flex items-center justify-center">
                 <Target className="h-7 w-7 text-white" />
@@ -79,11 +79,11 @@ const Dashboard = () => {
             </div>
           </Card>
 
-          <Card className="p-6 bg-slate-700/80 backdrop-blur-sm border-2 border-slate-600 rounded-2xl shadow-lg">
+          <Card className="p-6 bg-white/80 backdrop-blur-sm border-2 border-slate-200 rounded-2xl shadow-lg">
             <div className="flex items-center justify-between">
               <div>
-                <p className="font-body text-sm text-slate-300 mb-1">Language</p>
-                <p className="font-heading text-xl font-semibold text-slate-100">
+                <p className="font-body text-sm text-slate-500 mb-1">Language</p>
+                <p className="font-heading text-xl font-semibold text-slate-800">
                   {userProfile.explanation_language === 'id' ? '🇮🇩 Indonesia' : '🇬🇧 English'}
                 </p>
               </div>
