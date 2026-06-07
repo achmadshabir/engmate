@@ -25,12 +25,12 @@ const ChatMessage = ({ role, text, feedback, audioUrl, isThinking = false }) => 
   if (isThinking) {
     return (
       <div className="flex justify-start mb-4">
-        <Card className="max-w-[80%] p-4 bg-slate-800 border-slate-700">
-          <div className="flex items-center gap-2 text-slate-400 text-sm mb-2">
+        <Card className="max-w-[80%] p-4 bg-gradient-to-br from-purple-500 to-pink-500 border-0 shadow-lg">
+          <div className="flex items-center gap-2 text-white text-sm mb-2">
             <span>EngMate is analyzing your speech...</span>
           </div>
-          <Skeleton className="h-4 w-full mb-2 bg-slate-700" />
-          <Skeleton className="h-4 w-3/4 bg-slate-700" />
+          <Skeleton className="h-4 w-full mb-2 bg-white/30" />
+          <Skeleton className="h-4 w-3/4 bg-white/30" />
         </Card>
       </div>
     );
@@ -40,33 +40,33 @@ const ChatMessage = ({ role, text, feedback, audioUrl, isThinking = false }) => 
     <div className={`flex ${isUser ? 'justify-end' : 'justify-start'} mb-4`}>
       <Card className={`max-w-[80%] p-4 ${
         isUser 
-          ? 'bg-cyan-500/20 border-cyan-500/30' 
-          : 'bg-slate-800 border-slate-700'
+          ? 'bg-gradient-to-br from-blue-500 to-cyan-500 border-0 shadow-lg' 
+          : 'bg-gradient-to-br from-purple-500 to-pink-500 border-0 shadow-lg'
       }`}>
-        <div className={`text-sm ${isUser ? 'text-cyan-100' : 'text-slate-100'}`}>
+        <div className={`text-sm ${isUser ? 'text-white' : 'text-white'} font-medium`}>
           {text}
         </div>
 
         {feedback && !isUser && (
-          <div className="mt-3 pt-3 border-t border-slate-700">
-            <div className="text-xs text-slate-400 mb-1">Feedback:</div>
+          <div className="mt-3 pt-3 border-t border-white/20">
+            <div className="text-xs text-white/80 mb-1 font-semibold">Feedback:</div>
             {feedback.grammar_ok !== undefined && (
-              <div className="text-xs text-slate-300">
+              <div className="text-xs text-white/90">
                 Grammar: {feedback.grammar_ok ? '✓ Good' : '✗ Needs work'}
               </div>
             )}
             {feedback.fluency_score !== undefined && (
-              <div className="text-xs text-slate-300">
+              <div className="text-xs text-white/90">
                 Fluency: {feedback.fluency_score}/100
               </div>
             )}
             {feedback.tip_id && (
-              <div className="text-xs text-cyan-400 mt-1">
+              <div className="text-xs text-white mt-1 bg-white/20 p-2 rounded">
                 💡 {feedback.tip_id}
               </div>
             )}
             {feedback.encouragement_id && (
-              <div className="text-xs text-green-400 mt-1">
+              <div className="text-xs text-white mt-1 bg-white/20 p-2 rounded">
                 ✨ {feedback.encouragement_id}
               </div>
             )}
