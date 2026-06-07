@@ -179,3 +179,61 @@ const value = data.nested.property;
 ---
 
 *Last updated: June 7, 2026*
+
+
+---
+
+### Fix 3: Text Contrast - Profile, Pronunciation Coach, Live Conversation
+
+**Date:** June 7, 2026  
+**Issue:** Text pada halaman `/profile`, `/pronunciation-coach`, dan `/live-conversation` sulit dibaca karena kontras rendah
+
+**Root Cause:** Penggunaan `text-slate-400` pada background gelap menghasilkan contrast ratio ~3.5:1 (di bawah WCAG AA standard 4.5:1)
+
+**Files Changed:**
+- `frontend/src/pages/Profile.jsx`
+- `frontend/src/pages/PronunciationCoach.jsx`
+- `frontend/src/pages/LiveConversation.jsx`
+
+#### Profile.jsx Changes:
+
+| Element | Before | After |
+|---------|--------|-------|
+| Page subtitle | `text-slate-400` | `text-slate-300` |
+| Language Settings description | `text-slate-400` | `text-slate-300` |
+| Language buttons (unselected) | `text-slate-400` | `text-slate-300` |
+| Current Focus labels | `text-slate-400` | `text-slate-300` |
+
+#### PronunciationCoach.jsx Changes:
+
+| Element | Before | After |
+|---------|--------|-------|
+| Page subtitle | `text-slate-400` | `text-slate-300` |
+| "Example words:" label | `text-slate-400` | `text-slate-300` |
+| Word counter | `text-slate-400` | `text-slate-300` |
+| Target sound label | `text-slate-400` | `text-slate-300` |
+| Score label | `text-slate-400` | `text-slate-300` |
+| Empty state text | `text-slate-400` | `text-slate-300` |
+| Volume icon | `text-slate-400` | `text-slate-300` |
+
+#### LiveConversation.jsx Changes:
+
+| Element | Before | After |
+|---------|--------|-------|
+| Page subtitle | `text-slate-400` | `text-slate-300` |
+
+**Result:** Semua text sekarang memiliki contrast ratio ≥ 4.5:1, memenuhi WCAG 2.1 Level AA
+
+---
+
+## Files Modified (Updated)
+
+1. ✅ `frontend/src/pages/GuidedLesson.jsx` - Fixed null reference
+2. ✅ `frontend/src/pages/Dashboard.jsx` - Improved contrast
+3. ✅ `frontend/src/pages/Profile.jsx` - Improved text contrast
+4. ✅ `frontend/src/pages/PronunciationCoach.jsx` - Improved text contrast
+5. ✅ `frontend/src/pages/LiveConversation.jsx` - Improved text contrast
+
+---
+
+*Last updated: June 7, 2026*

@@ -52,7 +52,7 @@ const Profile = () => {
       <div className="max-w-4xl">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-slate-100 mb-2">Profile & Progress</h1>
-          <p className="text-slate-400">Manage your learning settings and track your progress</p>
+          <p className="text-slate-300">Manage your learning settings and track your progress</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -150,7 +150,7 @@ const Profile = () => {
                 <Languages className="h-5 w-5 text-cyan-400" />
                 Language Settings
               </CardTitle>
-              <CardDescription className="text-slate-400">
+              <CardDescription className="text-slate-300">
                 Choose your preferred language for explanations and feedback
               </CardDescription>
             </CardHeader>
@@ -169,7 +169,7 @@ const Profile = () => {
                     className={`p-4 rounded-lg border transition-all ${
                       userProfile.explanation_language === 'id'
                         ? 'bg-cyan-500/20 border-cyan-500 text-cyan-400'
-                        : 'bg-slate-900 border-slate-700 text-slate-400 hover:border-slate-600'
+                        : 'bg-slate-900 border-slate-700 text-slate-300 hover:border-slate-600'
                     }`}
                   >
                     <div className="text-2xl mb-2">🇮🇩</div>
@@ -186,7 +186,7 @@ const Profile = () => {
                     className={`p-4 rounded-lg border transition-all ${
                       userProfile.explanation_language === 'en'
                         ? 'bg-cyan-500/20 border-cyan-500 text-cyan-400'
-                        : 'bg-slate-900 border-slate-700 text-slate-400 hover:border-slate-600'
+                        : 'bg-slate-900 border-slate-700 text-slate-300 hover:border-slate-600'
                     }`}
                   >
                     <div className="text-2xl mb-2">🇬🇧</div>
@@ -234,11 +234,11 @@ const Profile = () => {
             <CardContent>
               <div className="space-y-3">
                 <div className="p-4 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-lg border border-cyan-500/30">
-                  <div className="text-sm text-slate-400 mb-1">Active Goal</div>
+                  <div className="text-sm text-slate-300 mb-1">Active Goal</div>
                   <div className="text-xl font-semibold text-slate-100">{userProfile.goal}</div>
                 </div>
                 <div className="p-4 bg-slate-900/50 rounded-lg">
-                  <div className="text-sm text-slate-400 mb-1">Current Level</div>
+                  <div className="text-sm text-slate-300 mb-1">Current Level</div>
                   <div className="text-xl font-semibold text-cyan-400">{userProfile.level}</div>
                 </div>
               </div>

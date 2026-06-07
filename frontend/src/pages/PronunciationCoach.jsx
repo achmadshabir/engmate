@@ -186,7 +186,7 @@ const PronunciationCoach = () => {
       <div className="max-w-6xl">
         <div className="mb-6">
           <h1 className="text-3xl font-bold text-slate-100 mb-2">Pronunciation Coach</h1>
-          <p className="text-slate-400">Master difficult English sounds with targeted practice</p>
+          <p className="text-slate-300">Master difficult English sounds with targeted practice</p>
         </div>
 
         <LearnerContextBar />
@@ -222,7 +222,7 @@ const PronunciationCoach = () => {
                           {item.difficulty}
                         </Badge>
                       </div>
-                      <Volume2 className="h-5 w-5 text-slate-400" />
+                      <Volume2 className="h-5 w-5 text-slate-300" />
                     </div>
                   </CardContent>
                 </Card>
@@ -243,7 +243,7 @@ const PronunciationCoach = () => {
                   <CardContent>
                     <div className="space-y-4">
                       <div>
-                        <p className="text-sm text-slate-400 mb-3">Example words:</p>
+                        <p className="text-sm text-slate-300 mb-3">Example words:</p>
                         <div className="grid grid-cols-2 gap-3">
                           {selectedSound.examples.map((word, index) => (
                             <Card key={index} className="bg-slate-900/50 border-slate-700">
@@ -267,7 +267,7 @@ const PronunciationCoach = () => {
 
                       <div className="pt-4 border-t border-slate-700">
                         <div className="text-center mb-4">
-                          <p className="text-sm text-slate-400 mb-2">Word {currentWordIndex + 1} of {selectedSound.examples.length}</p>
+                          <p className="text-sm text-slate-300 mb-2">Word {currentWordIndex + 1} of {selectedSound.examples.length}</p>
                           <p className="text-2xl font-bold text-cyan-400 mb-1">
                             Say: "{selectedSound.examples[currentWordIndex]}"
                           </p>
@@ -316,7 +316,7 @@ const PronunciationCoach = () => {
                             <div className="flex items-start justify-between mb-2">
                               <div>
                                 <span className="text-lg font-semibold text-slate-200">{item.word}</span>
-                                <span className="text-sm text-slate-400 ml-2">({item.target_sound})</span>
+                                <span className="text-sm text-slate-300 ml-2">({item.target_sound})</span>
                               </div>
                               <Badge className={getStatusColor(item.status)}>
                                 {item.status === 'needs_work' ? 'Needs work' : item.status}
@@ -324,7 +324,7 @@ const PronunciationCoach = () => {
                             </div>
                             <div className="mb-2">
                               <div className="flex items-center gap-2">
-                                <span className="text-sm text-slate-400">Score:</span>
+                                <span className="text-sm text-slate-300">Score:</span>
                                 <div className="flex-1 h-2 bg-slate-700 rounded-full overflow-hidden">
                                   <div
                                     className={`h-full ${
@@ -350,7 +350,7 @@ const PronunciationCoach = () => {
               <Card className="bg-slate-800/50 border-slate-700 h-full flex items-center justify-center">
                 <CardContent className="text-center py-16">
                   <Mic className="h-16 w-16 text-slate-600 mx-auto mb-4" />
-                  <p className="text-slate-400">Select a sound from the left to start practicing</p>
+                  <p className="text-slate-300">Select a sound from the left to start practicing</p>
                 </CardContent>
               </Card>
             )}
