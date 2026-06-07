@@ -59,13 +59,13 @@ const LiveConversation = () => {
     <Layout>
       <div className="max-w-4xl">
         <div className="mb-6">
-          <h1 className="text-3xl font-bold text-slate-100 mb-2">Live Conversation</h1>
-          <p className="text-slate-300">Practice natural conversations with real-time feedback</p>
+          <h1 className="text-3xl font-bold text-slate-800 mb-2">Live Conversation</h1>
+          <p className="text-slate-600">Practice natural conversations with real-time feedback</p>
         </div>
 
         <LearnerContextBar />
 
-        <Card className="bg-slate-800/50 border-slate-700">
+        <Card className="bg-white border-slate-200">
           <ScrollArea className="h-[500px] p-6">
             {messages.map((msg, index) => (
               <ChatMessage
@@ -79,7 +79,7 @@ const LiveConversation = () => {
             {isThinking && <ChatMessage isThinking={true} />}
           </ScrollArea>
           
-          <div className="p-6 border-t border-slate-700">
+          <div className="p-6 border-t border-slate-200">
             <VoiceInput
               onSubmit={handleSendMessage}
               disabled={isThinking}

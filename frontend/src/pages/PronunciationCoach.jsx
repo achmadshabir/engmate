@@ -185,8 +185,8 @@ const PronunciationCoach = () => {
     <Layout>
       <div className="max-w-6xl">
         <div className="mb-6">
-          <h1 className="text-3xl font-bold text-slate-100 mb-2">Pronunciation Coach</h1>
-          <p className="text-slate-300">Master difficult English sounds with targeted practice</p>
+          <h1 className="text-3xl font-bold text-slate-800 mb-2">Pronunciation Coach</h1>
+          <p className="text-slate-600">Master difficult English sounds with targeted practice</p>
         </div>
 
         <LearnerContextBar />
@@ -194,15 +194,15 @@ const PronunciationCoach = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Left: Sound List */}
           <div>
-            <h2 className="text-xl font-semibold text-slate-100 mb-4">Practice Sounds</h2>
+            <h2 className="text-xl font-semibold text-slate-800 mb-4">Practice Sounds</h2>
             <div className="space-y-3">
               {practiceWords.map((item) => (
                 <Card
                   key={item.id}
                   className={`cursor-pointer transition-all ${
                     selectedSound?.id === item.id
-                      ? 'bg-cyan-500/20 border-cyan-500'
-                      : 'bg-slate-800/50 border-slate-700 hover:border-cyan-500/50'
+                      ? 'bg-blue-50 border-blue-500'
+                      : 'bg-white border-slate-200 hover:border-blue-300'
                   }`}
                   onClick={() => {
                     setSelectedSound(item);
@@ -215,14 +215,14 @@ const PronunciationCoach = () => {
                     <div className="flex items-center justify-between">
                       <div>
                         <div className="flex items-center gap-2 mb-1">
-                          <span className="text-lg font-semibold text-cyan-400">{item.sound}</span>
-                          <span className="text-slate-300">{item.name}</span>
+                          <span className="text-lg font-semibold text-blue-600">{item.sound}</span>
+                          <span className="text-slate-700">{item.name}</span>
                         </div>
                         <Badge variant="outline" className={getDifficultyColor(item.difficulty)}>
                           {item.difficulty}
                         </Badge>
                       </div>
-                      <Volume2 className="h-5 w-5 text-slate-300" />
+                      <Volume2 className="h-5 w-5 text-slate-600" />
                     </div>
                   </CardContent>
                 </Card>
@@ -234,26 +234,26 @@ const PronunciationCoach = () => {
           <div>
             {selectedSound ? (
               <div className="space-y-4">
-                <Card className="bg-slate-800/50 border-slate-700">
+                <Card className="bg-white border-slate-200">
                   <CardHeader>
-                    <CardTitle className="text-slate-100">
+                    <CardTitle className="text-slate-800">
                       Practice: {selectedSound.sound} - {selectedSound.name}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
                       <div>
-                        <p className="text-sm text-slate-300 mb-3">Example words:</p>
+                        <p className="text-sm text-slate-600 mb-3">Example words:</p>
                         <div className="grid grid-cols-2 gap-3">
                           {selectedSound.examples.map((word, index) => (
-                            <Card key={index} className="bg-slate-900/50 border-slate-700">
+                            <Card key={index} className="bg-slate-50 border-slate-200">
                               <CardContent className="p-4">
                                 <div className="flex items-center justify-between">
-                                  <span className="text-lg font-medium text-slate-200">{word}</span>
+                                  <span className="text-lg font-medium text-slate-800">{word}</span>
                                   <Button
                                     size="icon"
                                     variant="ghost"
-                                    className="h-8 w-8 text-cyan-400 hover:bg-cyan-500/20"
+                                    className="h-8 w-8 text-blue-600 hover:bg-blue-100"
                                     onClick={() => speakWord(word)}
                                   >
                                     <Volume2 className="h-4 w-4" />
@@ -265,14 +265,14 @@ const PronunciationCoach = () => {
                         </div>
                       </div>
 
-                      <div className="pt-4 border-t border-slate-700">
+                      <div className="pt-4 border-t border-slate-200">
                         <div className="text-center mb-4">
-                          <p className="text-sm text-slate-300 mb-2">Word {currentWordIndex + 1} of {selectedSound.examples.length}</p>
-                          <p className="text-2xl font-bold text-cyan-400 mb-1">
+                          <p className="text-sm text-slate-600 mb-2">Word {currentWordIndex + 1} of {selectedSound.examples.length}</p>
+                          <p className="text-2xl font-bold text-blue-600 mb-1">
                             Say: "{selectedSound.examples[currentWordIndex]}"
                           </p>
                           {completedWords.length > 0 && (
-                            <p className="text-sm text-green-400">✓ Completed: {completedWords.join(', ')}</p>
+                            <p className="text-sm text-green-600">✓ Completed: {completedWords.join(', ')}</p>
                           )}
                         </div>
                         <div className="flex justify-center">
@@ -281,7 +281,7 @@ const PronunciationCoach = () => {
                             className={`h-16 w-16 rounded-full transition-all ${
                               isRecording
                                 ? 'bg-red-500 hover:bg-red-600 animate-pulse'
-                                : 'bg-cyan-500 hover:bg-cyan-600'
+                                : 'bg-blue-600 hover:bg-blue-700'
                             }`}
                             onClick={handlePracticeWord}
                             disabled={isAnalyzing || currentWordIndex >= selectedSound.examples.length}
@@ -290,13 +290,13 @@ const PronunciationCoach = () => {
                           </Button>
                         </div>
                         {isRecording && (
-                          <p className="text-sm text-red-400 mt-3 text-center">🎤 Recording... Speak now!</p>
+                          <p className="text-sm text-red-600 mt-3 text-center">🎤 Recording... Speak now!</p>
                         )}
                         {isAnalyzing && (
-                          <p className="text-sm text-cyan-400 mt-3 text-center">⏳ Analyzing your pronunciation...</p>
+                          <p className="text-sm text-blue-600 mt-3 text-center">⏳ Analyzing your pronunciation...</p>
                         )}
                         {currentWordIndex >= selectedSound.examples.length && completedWords.length === selectedSound.examples.length && (
-                          <p className="text-lg text-green-400 mt-3 text-center font-semibold">🎉 All words completed! Great job!</p>
+                          <p className="text-lg text-green-600 mt-3 text-center font-semibold">🎉 All words completed! Great job!</p>
                         )}
                       </div>
                     </div>
@@ -305,18 +305,18 @@ const PronunciationCoach = () => {
 
                 {/* Pronunciation Feedback */}
                 {feedback && feedback.length > 0 && (
-                  <Card className="bg-slate-800/50 border-slate-700">
+                  <Card className="bg-white border-slate-200">
                     <CardHeader>
-                      <CardTitle className="text-slate-100">Pronunciation Feedback</CardTitle>
+                      <CardTitle className="text-slate-800">Pronunciation Feedback</CardTitle>
                     </CardHeader>
                     <CardContent>
                       <div className="space-y-4">
                         {feedback.map((item, index) => (
-                          <div key={index} className="p-4 bg-slate-900/50 rounded-lg border border-slate-700">
+                          <div key={index} className="p-4 bg-slate-50 rounded-lg border border-slate-200">
                             <div className="flex items-start justify-between mb-2">
                               <div>
-                                <span className="text-lg font-semibold text-slate-200">{item.word}</span>
-                                <span className="text-sm text-slate-300 ml-2">({item.target_sound})</span>
+                                <span className="text-lg font-semibold text-slate-800">{item.word}</span>
+                                <span className="text-sm text-slate-600 ml-2">({item.target_sound})</span>
                               </div>
                               <Badge className={getStatusColor(item.status)}>
                                 {item.status === 'needs_work' ? 'Needs work' : item.status}
@@ -324,8 +324,8 @@ const PronunciationCoach = () => {
                             </div>
                             <div className="mb-2">
                               <div className="flex items-center gap-2">
-                                <span className="text-sm text-slate-300">Score:</span>
-                                <div className="flex-1 h-2 bg-slate-700 rounded-full overflow-hidden">
+                                <span className="text-sm text-slate-600">Score:</span>
+                                <div className="flex-1 h-2 bg-slate-200 rounded-full overflow-hidden">
                                   <div
                                     className={`h-full ${
                                       item.score >= 80 ? 'bg-green-500' : item.score >= 60 ? 'bg-yellow-500' : 'bg-red-500'
@@ -333,10 +333,10 @@ const PronunciationCoach = () => {
                                     style={{ width: `${item.score}%` }}
                                   ></div>
                                 </div>
-                                <span className="text-sm text-slate-300 font-semibold">{item.score}%</span>
+                                <span className="text-sm text-slate-700 font-semibold">{item.score}%</span>
                               </div>
                             </div>
-                            <div className="text-sm text-cyan-400">
+                            <div className="text-sm text-blue-700">
                               💡 {userProfile.explanation_language === 'id' ? item.tip_id : item.tip_en}
                             </div>
                           </div>
@@ -347,10 +347,10 @@ const PronunciationCoach = () => {
                 )}
               </div>
             ) : (
-              <Card className="bg-slate-800/50 border-slate-700 h-full flex items-center justify-center">
+              <Card className="bg-white border-slate-200 h-full flex items-center justify-center">
                 <CardContent className="text-center py-16">
-                  <Mic className="h-16 w-16 text-slate-600 mx-auto mb-4" />
-                  <p className="text-slate-300">Select a sound from the left to start practicing</p>
+                  <Mic className="h-16 w-16 text-slate-400 mx-auto mb-4" />
+                  <p className="text-slate-600">Select a sound from the left to start practicing</p>
                 </CardContent>
               </Card>
             )}
